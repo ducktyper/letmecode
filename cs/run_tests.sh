@@ -5,9 +5,9 @@
 # Click 'Download Mono MDK' and install
 
 ## Usage
-# sh runTest.sh
+# sh run_tests.sh
 
-for f in "$(dirname "${BASH_SOURCE[0]}")/*.cs"
+for f in $(dirname "${BASH_SOURCE[0]}")/*Test.cs
 do
   ## Compile
   mcs -t:library -r:nunit.framework ${f}
@@ -19,7 +19,3 @@ do
   ## Clean
   rm ${dll}
 done
-
-
-
-
