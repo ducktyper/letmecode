@@ -17,5 +17,5 @@ do
   nunit-console ${dll}
 
   ## Clean
-  rm ${dll}
+  rm ${dll} TestResult.xml
 done
