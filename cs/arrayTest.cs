@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Linq;
 
 [TestFixture]
-public class StringTest
+public class ArrayTest
 {
 
     [Test]
