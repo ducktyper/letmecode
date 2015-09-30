@@ -94,7 +94,15 @@ describe "array" do
     assert_equal [2, 1], [1, 2].sort_by {|x| -x}
     assert_equal [[1, 3], [1, 2], [2, 1]],
       [[2, 1], [1, 3], [1, 2]].sort_by {|x| [x.first, -x.last]}
-    assert_equal [1, 2], [2, 1].sort {|a, b| b == a ? 0 : (a > b ? 1 : -1)}
+    assert_equal [1, 2], [2, 1].sort {|a, b| a == b ? 0 : (a > b ? 1 : -1)}
+  end
+
+  it "sort mutate" do
+    assert_equal [1, 2], [2, 1].sort!
+    assert_equal [2, 1], [1, 2].sort_by! {|x| -x}
+    assert_equal [[1, 3], [1, 2], [2, 1]],
+      [[2, 1], [1, 3], [1, 2]].sort_by! {|x| [x.first, -x.last]}
+    assert_equal [1, 2], [2, 1].sort! {|a, b| b == a ? 0 : (a > b ? 1 : -1)}
   end
 
 end
