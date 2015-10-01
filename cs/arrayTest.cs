@@ -157,12 +157,21 @@ public class ArrayTest
         Assert.AreEqual(2, array.Count());
     }
 
+    public class SmallToLarge : IComparer<int>
+    {
+        public int Compare(int a, int b)
+        {
+            return a == b ? 0 : (a > b ? 1 : -1);
+        }
+    }
+
     [Test]
     public void Sort()
     {
         var array = new List<int>() {2, 1};
         Assert.AreEqual(1, array.OrderBy(x => x).First());
         Assert.AreEqual(2, array.OrderBy(x => x).Reverse().First());
+        Assert.AreEqual(1, array.OrderBy(x => x, new SmallToLarge()).First());
     }
 
     [Test]
