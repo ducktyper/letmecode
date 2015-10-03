@@ -1,4 +1,6 @@
 require 'minitest/autorun'
+require 'active_support/core_ext/hash/slice'
+require 'json'
 
 describe "hash" do
 
@@ -62,6 +64,27 @@ describe "hash" do
       t + "#{i - 1}_#{k}_#{v} "
     end
     assert_equal "0_name_apple 1_price_3 ", text
+  end
+
+  it "select" do
+    hash = {name: "apple", price: 3}
+    assert_equal({name: "apple"}, hash.slice(:name))
+  end
+
+  it "select mutate" do
+    hash = {name: "apple", price: 3}
+    hash.slice!(:name)
+    assert_equal({name: "apple"}, hash)
+  end
+
+  it "to json" do
+    hash = {name: "apple", price: 3}
+    assert_equal("{\"name\":\"apple\",\"price\":3}", JSON.generate(hash))
+  end
+
+  it "from json" do
+    json_string = "{\"name\":\"apple\",\"price\":3}"
+    assert_equal({"name" => "apple", "price" => 3}, JSON.parse(json_string))
   end
 
 end
