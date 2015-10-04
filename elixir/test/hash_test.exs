@@ -49,4 +49,15 @@ defmodule HashTest do
     assert %{name: "apple"} = Dict.take(hash, [:name])
   end
 
+  test "to json" do
+    # https://github.com/devinus/poison
+    hash = %{name: "apple", price: 3}
+    assert "{\"price\":3,\"name\":\"apple\"}" = Poison.encode!(hash)
+  end
+
+  test "from json" do
+    json_string = ~s({"name":"apple","price":3})
+    assert %{"name" => "apple", "price" => 3} = Poison.decode!(json_string)
+  end
+
 end
