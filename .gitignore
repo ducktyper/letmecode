@@ -1,5 +1,20 @@
 TestResult.xml
 *.dll
+# ruby
+/ruby/.bundle/
+/ruby/.yardoc
+/ruby/Gemfile.lock
+/ruby/_yardoc/
+/ruby/coverage/
+/ruby/doc/
+/ruby/pkg/
+/ruby/spec/reports/
+/ruby/tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
 # elixir
 /elixir/_build
 /elixir/cover
