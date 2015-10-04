@@ -1,2 +1,8 @@
 TestResult.xml
 *.dll
+# elixir
+/elixir/_build
+/elixir/cover
+/elixir/deps
+erl_crash.dump
+*.ez
