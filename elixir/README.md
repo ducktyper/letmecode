@@ -1,19 +1,24 @@
 # Letmecode
 
-**TODO: Add description**
+## Install elixir (MAC)
+```
+brew install elixir
+```
 
-## Installation
+## Create new project
+```
+mix new [project_name]
+```
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+## Add dependency
+mix.exs
+```elixir
+def deps do
+  [{:poison, "~> 1.5"}]
+end
+```
 
-  1. Add letmecode to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:letmecode, "~> 0.0.1"}]
-        end
-
-  2. Ensure letmecode is started before your application:
-
-        def application do
-          [applications: [:letmecode]]
-        end
+## Install depencency
+```
+mix deps.get
+```
