@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic; // Dictionary
 using System.Collections.ObjectModel; // ReadOnlyDictionary
+using Newtonsoft.Json; // JsonConvert
 using System.Linq;
 
 namespace Letmecode
@@ -112,6 +113,25 @@ namespace Letmecode
             foreach (var key in keysToRemove) { hash.Remove(key); }
             Assert.AreEqual(true, hash.ContainsKey("name"));
             Assert.AreEqual(false, hash.ContainsKey("price"));
+        }
+
+        [TestMethod]
+        public void ToJson()
+        {
+            var hash = new Dictionary<string, string>() {
+                { "name", "apple" }, { "price", "3" }
+            };
+            var jsonString = JsonConvert.SerializeObject(hash);
+            Assert.AreEqual(@"{""name"":""apple"",""price"":""3""}", jsonString);
+        }
+
+        [TestMethod]
+        public void FromJson()
+        {
+            var jsonString = @"{""name"":""apple"",""price"":3}";
+            var hash = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString);
+            Assert.AreEqual("apple", hash["name"]);
+            Assert.AreEqual("3", hash["price"]);
         }
     }
 }
