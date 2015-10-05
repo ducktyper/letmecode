@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArrayTest.cs" />
+    <Compile Include="HashTest.cs" />
     <Compile Include="NumberTest.cs" />
     <Compile Include="StringTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
