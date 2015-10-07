@@ -52,9 +52,7 @@ defmodule NumberTest do
   end
 
   test "accurate float calculation" do
-    # TODO
-    # assert 110 = 100 * Decimal("1.1")
-    # assert 0.3 = 0.1 + Decimal("0.2")
+    # no support
   end
 
   test "cos" do
